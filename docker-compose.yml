@@ -1,0 +1,12 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  algorithm-api:
+    image: algorithmapi:latest
+    build: .
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/root/algorithm-api
+    command: ["uvicorn", "algorithm_api.main:app", "--port", "3000", "--host", "0.0.0.0"]
